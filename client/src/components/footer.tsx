@@ -10,32 +10,30 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-navy text-white py-12">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="bg-black text-white py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
             <div className="flex items-center mb-4">
-              <img 
-                src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=60&h=40" 
-                alt="Ephphatha Kenya Logo" 
-                className="h-8 w-auto mr-3"
-              />
-              <span className="text-xl font-bold">Ephphatha Kenya</span>
+              <span className="text-2xl font-bold">
+                <span className="text-white">EPHPHATHA</span>
+                <span className="text-red-600">KENYA</span>
+              </span>
             </div>
-            <p className="text-gray-300 mb-4 max-w-md">
+            <p className="text-gray-300 mb-6 max-w-md">
               Empowering communication and building bridges between deaf and hearing communities through quality Kenyan Sign Language education.
             </p>
             <div className="flex space-x-4">
-              <Button variant="ghost" size="sm" className="text-gray-300 hover:text-white transition-colors p-0">
+              <Button variant="ghost" size="sm" className="text-gray-300 hover:text-white transition-colors p-2 rounded-full">
                 <Facebook className="h-5 w-5" />
               </Button>
-              <Button variant="ghost" size="sm" className="text-gray-300 hover:text-white transition-colors p-0">
+              <Button variant="ghost" size="sm" className="text-gray-300 hover:text-white transition-colors p-2 rounded-full">
                 <Twitter className="h-5 w-5" />
               </Button>
-              <Button variant="ghost" size="sm" className="text-gray-300 hover:text-white transition-colors p-0">
+              <Button variant="ghost" size="sm" className="text-gray-300 hover:text-white transition-colors p-2 rounded-full">
                 <Instagram className="h-5 w-5" />
               </Button>
-              <Button variant="ghost" size="sm" className="text-gray-300 hover:text-white transition-colors p-0">
+              <Button variant="ghost" size="sm" className="text-gray-300 hover:text-white transition-colors p-2 rounded-full">
                 <Youtube className="h-5 w-5" />
               </Button>
             </div>

@@ -15,48 +15,34 @@ export default function Navigation() {
 
   return (
     <nav className="bg-white shadow-sm sticky top-0 z-50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <img 
-              src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=60" 
-              alt="Ephphatha Kenya Logo" 
-              className="h-10 w-auto mr-3"
-            />
-            <span className="text-xl font-bold text-navy">Ephphatha Kenya</span>
+            <span className="text-2xl font-bold">
+              <span className="text-black">EPHPHATHA</span>
+              <span className="text-red-600">KENYA</span>
+            </span>
           </div>
           
-          <div className="hidden md:flex space-x-8">
-            <button 
-              onClick={() => scrollToSection('about')} 
-              className="text-gray-dark hover:text-navy transition-colors"
-            >
-              About
-            </button>
+          <div className="hidden md:flex items-center space-x-8">
             <button 
               onClick={() => scrollToSection('course')} 
-              className="text-gray-dark hover:text-navy transition-colors"
+              className="text-gray-700 hover:text-black transition-colors font-medium"
             >
               Course
             </button>
             <button 
-              onClick={() => scrollToSection('testimonials')} 
-              className="text-gray-dark hover:text-navy transition-colors"
+              onClick={() => scrollToSection('masterclass')} 
+              className="text-gray-700 hover:text-black transition-colors font-medium"
             >
-              Testimonials
+              Masterclass
             </button>
-            <button 
-              onClick={() => scrollToSection('faq')} 
-              className="text-gray-dark hover:text-navy transition-colors"
+            <Button 
+              onClick={() => scrollToSection('register')}
+              className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full font-medium transition-colors"
             >
-              FAQ
-            </button>
-            <button 
-              onClick={() => scrollToSection('contact')} 
-              className="text-gray-dark hover:text-navy transition-colors"
-            >
-              Contact
-            </button>
+              Register
+            </Button>
           </div>
           
           <Button
@@ -74,35 +60,23 @@ export default function Navigation() {
           <div className="md:hidden py-4 border-t">
             <div className="flex flex-col space-y-4">
               <button 
-                onClick={() => scrollToSection('about')} 
-                className="text-gray-dark hover:text-navy transition-colors text-left"
-              >
-                About
-              </button>
-              <button 
                 onClick={() => scrollToSection('course')} 
-                className="text-gray-dark hover:text-navy transition-colors text-left"
+                className="text-gray-700 hover:text-black transition-colors text-left font-medium"
               >
                 Course
               </button>
               <button 
-                onClick={() => scrollToSection('testimonials')} 
-                className="text-gray-dark hover:text-navy transition-colors text-left"
+                onClick={() => scrollToSection('masterclass')} 
+                className="text-gray-700 hover:text-black transition-colors text-left font-medium"
               >
-                Testimonials
+                Masterclass
               </button>
-              <button 
-                onClick={() => scrollToSection('faq')} 
-                className="text-gray-dark hover:text-navy transition-colors text-left"
+              <Button 
+                onClick={() => scrollToSection('register')}
+                className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full font-medium transition-colors w-fit"
               >
-                FAQ
-              </button>
-              <button 
-                onClick={() => scrollToSection('contact')} 
-                className="text-gray-dark hover:text-navy transition-colors text-left"
-              >
-                Contact
-              </button>
+                Register
+              </Button>
             </div>
           </div>
         )}

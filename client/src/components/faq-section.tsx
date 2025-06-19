@@ -50,35 +50,35 @@ export default function FAQSection() {
   ];
 
   return (
-    <section id="faq" className="py-20 bg-gray-light">
+    <section id="faq" className="py-20 bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-navy mb-4">
+          <h2 className="text-4xl lg:text-5xl font-bold text-black mb-6">
             Frequently Asked Questions
           </h2>
-          <p className="text-xl text-gray-dark">
+          <p className="text-xl text-gray-600">
             Get answers to common questions about our Advanced KSL Course.
           </p>
         </div>
 
         <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <Card key={index} className="bg-white rounded-xl shadow-sm border-0">
+            <Card key={index} className="bg-white rounded-3xl shadow-sm border-0">
               <CardContent className="p-0">
                 <Button
                   variant="ghost"
                   onClick={() => toggleItem(index)}
-                  className="w-full px-6 py-6 text-left flex justify-between items-center hover:bg-gray-50 rounded-xl transition-colors h-auto"
+                  className="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-gray-50 rounded-3xl transition-colors h-auto"
                 >
-                  <span className="font-semibold text-navy pr-4">{faq.question}</span>
+                  <span className="font-semibold text-black pr-4">{faq.question}</span>
                   <ChevronDown 
-                    className={`text-gray-dark transform transition-transform flex-shrink-0 ${
+                    className={`text-gray-600 transform transition-transform flex-shrink-0 ${
                       openItems.includes(index) ? 'rotate-180' : ''
                     }`} 
                   />
                 </Button>
                 {openItems.includes(index) && (
-                  <div className="px-6 pb-6 text-gray-dark">
+                  <div className="px-8 pb-6 text-gray-700">
                     <p>{faq.answer}</p>
                   </div>
                 )}

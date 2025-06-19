@@ -49,20 +49,20 @@ export default function TestimonialsSection() {
   ];
 
   return (
-    <section id="testimonials" className="py-20 bg-gray-light">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="testimonials" className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-navy mb-4">
+          <h2 className="text-4xl lg:text-5xl font-bold text-black mb-6">
             Success Stories from Our Students
           </h2>
-          <p className="text-xl text-gray-dark max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Hear from graduates who transformed their KSL skills and gained confidence in the deaf community.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="bg-white p-8 rounded-xl shadow-lg border-0">
+            <Card key={index} className="bg-white p-8 rounded-3xl shadow-lg border-0 hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
               <CardContent className="p-0">
                 <div className="flex items-center mb-6">
                   <img 
@@ -71,8 +71,8 @@ export default function TestimonialsSection() {
                     className="w-16 h-16 rounded-full mr-4"
                   />
                   <div>
-                    <h4 className="font-semibold text-navy">{testimonial.name}</h4>
-                    <p className="text-sm text-gray-dark">{testimonial.role}</p>
+                    <h4 className="font-semibold text-black">{testimonial.name}</h4>
+                    <p className="text-sm text-gray-600">{testimonial.role}</p>
                   </div>
                 </div>
                 <div className="flex text-yellow-400 mb-4">
@@ -80,8 +80,8 @@ export default function TestimonialsSection() {
                     <Star key={starIndex} className="h-4 w-4 fill-current" />
                   ))}
                 </div>
-                <p className="text-gray-dark italic mb-4">"{testimonial.testimonial}"</p>
-                <Badge variant="secondary" className="text-sm text-green-accent font-semibold bg-green-accent/10">
+                <p className="text-gray-700 italic mb-4">"{testimonial.testimonial}"</p>
+                <Badge className="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
                   {testimonial.year}
                 </Badge>
               </CardContent>
