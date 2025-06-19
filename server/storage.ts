@@ -6,6 +6,8 @@ import {
   type ContactMessage,
   type InsertContactMessage
 } from "@shared/schema";
+import { db } from "./db";
+import { eq } from "drizzle-orm";
 
 export interface IStorage {
   // Masterclass registration methods
@@ -18,59 +20,35 @@ export interface IStorage {
   getContactMessages(): Promise<ContactMessage[]>;
 }
 
-export class MemStorage implements IStorage {
-  private masterclassRegistrations: Map<number, MasterclassRegistration>;
-  private contactMessages: Map<number, ContactMessage>;
-  private currentRegistrationId: number;
-  private currentMessageId: number;
-
-  constructor() {
-    this.masterclassRegistrations = new Map();
-    this.contactMessages = new Map();
-    this.currentRegistrationId = 1;
-    this.currentMessageId = 1;
-  }
-
-  async createMasterclassRegistration(insertRegistration: InsertMasterclassRegistration): Promise<MasterclassRegistration> {
-    const id = this.currentRegistrationId++;
-    const registration: MasterclassRegistration = {
-      id,
-      fullName: insertRegistration.fullName,
-      email: insertRegistration.email,
-      phone: insertRegistration.phone,
-      kslLevel: insertRegistration.kslLevel,
-      motivation: insertRegistration.motivation || null,
-      consent: insertRegistration.consent ?? "true",
-      createdAt: new Date(),
-    };
-    this.masterclassRegistrations.set(id, registration);
-    return registration;
-  }
-
+export class DatabaseStorage implements IStorage {
   async getMasterclassRegistrations(): Promise<MasterclassRegistration[]> {
-    return Array.from(this.masterclassRegistrations.values());
+    return await db.select().from(masterclassRegistrations);
   }
 
   async getMasterclassRegistrationByEmail(email: string): Promise<MasterclassRegistration | undefined> {
-    return Array.from(this.masterclassRegistrations.values()).find(
-      (registration) => registration.email === email,
-    );
+    const [registration] = await db.select().from(masterclassRegistrations).where(eq(masterclassRegistrations.email, email));
+    return registration || undefined;
+  }
+
+  async createMasterclassRegistration(insertRegistration: InsertMasterclassRegistration): Promise<MasterclassRegistration> {
+    const [registration] = await db
+      .insert(masterclassRegistrations)
+      .values(insertRegistration)
+      .returning();
+    return registration;
   }
 
   async createContactMessage(insertMessage: InsertContactMessage): Promise<ContactMessage> {
-    const id = this.currentMessageId++;
-    const message: ContactMessage = {
-      ...insertMessage,
-      id,
-      createdAt: new Date(),
-    };
-    this.contactMessages.set(id, message);
+    const [message] = await db
+      .insert(contactMessages)
+      .values(insertMessage)
+      .returning();
     return message;
   }
 
   async getContactMessages(): Promise<ContactMessage[]> {
-    return Array.from(this.contactMessages.values());
+    return await db.select().from(contactMessages);
   }
 }
 
-export const storage = new MemStorage();
+export const storage = new DatabaseStorage();
