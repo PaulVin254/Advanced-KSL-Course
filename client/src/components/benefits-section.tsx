@@ -49,13 +49,13 @@ export default function BenefitsSection() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {benefits.map((benefit, index) => (
-            <Card key={index} className="bg-white bg-opacity-10 backdrop-blur-sm p-8 rounded-xl border-0 text-white">
+            <Card key={index} className="bg-white p-8 rounded-xl border-0 shadow-lg">
               <CardContent className="p-0">
-                <div className="bg-white bg-opacity-20 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                <div className="bg-green-accent w-16 h-16 rounded-full flex items-center justify-center mb-4">
                   <benefit.icon className="text-white text-2xl" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">{benefit.title}</h3>
-                <p className="opacity-90">{benefit.description}</p>
+                <h3 className="text-xl font-semibold mb-3 text-navy">{benefit.title}</h3>
+                <p className="text-gray-dark">{benefit.description}</p>
               </CardContent>
             </Card>
           ))}
